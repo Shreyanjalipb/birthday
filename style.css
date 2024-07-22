@@ -1,0 +1,519 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300italic);
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+    background: #000;
+    background-size: cover;
+  }
+  
+  
+
+#cake {
+  display: block;
+  position: relative;
+  margin: -10em auto 0 auto;
+}
+
+/* ============================================== Candle
+*/
+
+.velas {
+  background: #ffffff;
+  border-radius: 10px;
+  position: absolute;
+  top: 228px;
+  left: 50%;
+  margin-left: -2.4px;
+  margin-top: -8.33333333px;
+  width: 5px;
+  height: 35px;
+  transform: translateY(-300px);
+  backface-visibility: hidden;
+  animation: in 500ms 6s ease-out forwards;
+}
+.velas:after,
+.velas:before {
+  background: rgba(255, 0, 0, 0.4);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2.22222222px;
+}
+.velas:after {
+  top: 25%;
+  left: 0;
+}
+.velas:before {
+  top: 45%;
+  left: 0;
+}
+
+/* ============================================== Fire
+*/
+
+.fuego {
+  border-radius: 100%;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  margin-left: -2.6px;
+  width: 6.66666667px;
+  height: 18px;
+}
+.fuego:nth-child(1) {
+  animation: fuego 2s 6.5s infinite;
+}
+.fuego:nth-child(2) {
+  animation: fuego 1.5s 6.5s infinite;
+}
+.fuego:nth-child(3) {
+  animation: fuego 1s 6.5s infinite;
+}
+.fuego:nth-child(4) {
+  animation: fuego 0.5s 6.5s infinite;
+}
+.fuego:nth-child(5) {
+  animation: fuego 0.2s 6.5s infinite;
+}
+
+/* ============================================== Animation Fire
+*/
+
+@keyframes fuego {
+  0%, 100% {
+    background: rgba(254, 248, 97, 0.5);
+    box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    background: rgba(255, 50, 0, 0.1);
+    box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+    transform: translateY(-20px) scale(0);
+  }
+}
+
+@keyframes in {
+  to {
+    transform: translateY(0);
+  }
+}
+
+.text {
+  color: #8b6a60;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-style:italic;
+  text-align: center; 
+}
+
+.text>h1 {
+    font-size: 1.4em;
+  }
+  .card {
+    width: 900px;
+    height: 800px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-perspective: 1200px;
+    perspective: 1200px;
+    transition: 1s;
+    margin-top: 750px;
+    background: linear-gradient(135deg, #000000, #ffffff);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(238, 0, 0, 0.2);
+  }
+  .card:hover {
+    transform: rotate(-5deg);
+  }
+  .card:hover .outside {
+    transform: rotateY(-130deg);
+  }
+  .outside,
+  .inside {
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    left: 50.1%;
+  }
+  .inside {
+    background: linear-gradient(to right, #ff0000, #ffffff 30%);
+    line-height: 3;
+    padding: 0 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    left: 50%;
+  }
+  .inside {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #57b1ff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.inside img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+.inside .text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.inside .text-content h1 {
+    margin-top: 10px;
+}
+  .outside {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    z-index: 1;
+    transform-origin: left;
+    transition: 2s;
+    cursor: pointer;
+  }
+  .front,
+  .back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: rotateX(0deg);
+    background: linear-gradient(to left, #e7e7e7, #ffffff 30%);
+  }
+
+  .back {
+    transform: rotateY(180deg);
+    background: linear-gradient(to left, #e7e7e7, #ffffff 30%);
+  }
+  .cake {
+    width: 100%;
+    position: absolute;
+    bottom: 30px;
+  }
+  .top-layer,
+  .middle-layer,
+  .bottom-layer {
+    height: 80px;
+    width: 240px;
+    background-repeat: repeat;
+    background-size: 60px 100px;
+    background-position: 28px 0;
+    background-image: linear-gradient(
+        transparent 50px,
+        #fedbab 50px,
+        #fedbab 60px,
+        transparent 60px
+      ),
+      radial-gradient(circle at 30px 5px, #ff0084 30px, #ff0037 31px);
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    margin: auto;
+  }
+  .middle-layer {
+    transform: scale(0.85);
+    top: 6px;
+  }
+  .top-layer {
+    transform: scale(0.7);
+    top: 26px;
+  }
+  .candle {
+    height: 45px;
+    width: 15px;
+    background: repeating-linear-gradient(
+      45deg,
+      #fd3018 0,
+      #fd3018 5px,
+      #ffa89e 5px,
+      #ffa89e 10px
+    );
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 202px;
+  }
+  .candle:before {
+    content: "";
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    background-color: #ffa500;
+    border-radius: 0 50% 50% 50%;
+    bottom: 48px;
+    transform: rotate(45deg);
+    left: -1px;
+  }
+  .outside p {
+    font-size: 23px;
+    text-transform: uppercase;
+    margin-top: 30px;
+    text-align: center;
+    letter-spacing: 6px;
+    color: #000046;
+  }
+  .inside h1 {
+    font-size: 120px;
+    line-height: 120px;
+  }
+  .gift-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000000; /* Example background color */
+    margin-top: 100%;
+  }
+  
+  .gift-section .envelope {
+    position: relative;
+    cursor: pointer;
+    
+  }
+  
+  .gift-section .back {
+    position: relative;
+    width: 530px;
+    height: 180px;
+    background: #6247aa;
+  }
+  
+  .gift-section .letter {
+    position: absolute;
+    background: #6247aa;
+    width: 530px;
+    height: 180px;
+    top: 10px;
+    left: 10px;
+    transition: 0.2s;
+  }
+  
+  .gift-section .envelope:hover .letter {
+    transform: translateY(-100px);
+    z-index: 2;
+    width: 530px;
+    height: 180px;
+  }
+  
+  .gift-section .heart {
+    background-color: red;
+    height: 70px;
+    width: 70px;
+    position: relative;
+    top: 20px;
+    left: 20px;
+    transform: rotate(-45deg);
+    box-shadow: -5px 10px 90px red;
+    animation: untoldcoding 0.8s linear infinite;
+  }
+  
+  .gift-section .text {
+    text-align: center;
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+    font-weight: bold;
+    color: black;
+    position: relative;
+    top: -20px;
+    left: 20px;
+  }
+  
+  .gift-section .text1 {
+    position: absolute;
+    color: white;
+    font-family: sans-serif;
+    top: -50%;
+    margin-top: -100px;
+  }
+  
+  /* Add other necessary styles for .gift-section if needed */
+  .gift-section .envelope {
+    position: relative;
+    cursor: pointer;
+   
+  }
+  
+  .gift-section .back {
+    position: relative;
+    width: 250px;
+    height: 200px;
+    background: #6247aa;
+  }
+  
+  .gift-section .front {
+    position: absolute;
+    border-right: 130px solid #815ac0;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    height: 0;
+    width: 0;
+    top: 0;
+    left: 120px;
+    z-index: 3;
+  }
+  
+  .gift-section .front:before {
+    content: "";
+    position: absolute;
+    border-left: 130px solid #815ac0;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    height: 0;
+    width: 0;
+    top: -100px;
+    left: -120px;
+  }
+  
+  .gift-section .front:after {
+    content: "";
+    position: absolute;
+    border-bottom: 105px solid #7251b5;
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    height: 0;
+    width: 0;
+    top: -5px;
+    left: -120px;
+  }
+  
+  .gift-section .top {
+    position: absolute;
+    border-top: 105px solid #9163cb;
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    height: 0;
+    width: 0;
+    top: 0;
+    transform-origin: top;
+    transition: 0.4s;
+  }
+  
+  .gift-section .envelope:hover .top {
+    transform: rotateX(160deg);
+  }
+  
+  .gift-section .letter {
+    position: absolute;
+    background: rgb(0, 0, 0);
+    width: 230px;
+    height: 180px;
+    top: 10px;
+    left: 10px;
+    transition: 0.2s;
+  }
+  
+  .gift-section .envelope:hover .letter {
+    transform: translateY(-100px);
+    z-index: 2;
+  }
+  
+  .gift-section .text1 {
+    position: absolute;
+    color: white;
+    font-family: sans-serif;
+    top: -50%;
+  }
+  
+  .gift-section .text {
+    text-align: center;
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+    font-weight: bold;
+    color: black;
+    position: relative;
+    top: -20px;
+    left: 20px;
+  }
+  
+  /*---heart -----*/
+  .gift-section .heart {
+    background-color: red;
+    height: 70px;
+    width: 70px;
+    position: relative;
+    top: 20px;
+    left: 20px;
+    transform: rotate(-45deg);
+    box-shadow: -5px 10px 90px red;
+    animation: untoldcoding 0.8s linear infinite;
+  }
+  
+  @keyframes untoldcoding {
+    0% {
+      transform: rotate(-45deg) scale(1.05);
+    }
+    70% {
+      transform: rotate(-45deg) scale(1);
+    }
+    100% {
+      transform: rotate(-45deg) scale(0.8);
+    }
+  }
+  
+  .gift-section .heart:before {
+    content: "";
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background-color: red;
+    top: -40px;
+    border-radius: 50px;
+  }
+  
+  .gift-section .heart:after {
+    content: "";
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background-color: red;
+    right: -40px;
+    border-radius: 50px;
+  }
+  
+.section-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  margin: 20px;
+  background-color: #6247aa;
+  margin-left: 60px;
+  margin-top: -180px;
+}
+
+.gif-embed {
+  max-width: 200px;
+}
+
+.btn {
+  display: flex;
+  gap: 25px;
+}
+
+.btn a {
+  text-decoration: none;
+  color: #111;
+  background: #fff;
+  padding: 10px 25px;
+  border-radius: 8px;
+  box-shadow: 0.5rem 1rem 3rem hsl(0, 0%, 0%, 0.3);
+}
